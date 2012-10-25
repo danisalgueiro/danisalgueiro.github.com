@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="row content">
+    <div class="span12 page">
+        <div class="hero-unit">
+            <h1><strong>Desarrollador web de Donostia/San Sebastián</strong></h1>
+            <h2>Experiencia en desarrollo web, y admiración por <strong>PHP</strong> y <strong>Symfony</strong></h2>
+            <p>Formando parte de <a href="http://www.diversius.com/" title="Diversius" target="_blank">Diversius</a>, creando proyectos como <a href="http://www.aunminuto.com/" title="A Un Minuto" target="_blank">A Un Minuto</a>. Si tienes alguna idea, sugerencia o problema, y me <a href="mailto:{{ site.author.email }}" target="_blank">encuentras</a>, quizás lo podamos hablar.</p>
+        </div>
+
+        <section class="post-list">
+            <div class="row">
+                <div class="span12">
+                    <div class="page-header">
+                        <h2>Últimos posts <small><a href="{{ base.url }}/archive">Leer más</a></small></h2>
+                    </div>
+
+                    <ul>
+                    {% for post in site.posts limit:8 %}
+                        <li class="post">
+                            <article>
+                                <div class="date">{{ post.date | date: "%d/%m/%Y" }}</div>
+                                <div class="title">
+                                    <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+                                </div>
+                            </article>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+auto: true
+safe: true
+lsi: false
+markdown: rdiscount
+pygments: true
+
+title: Dani Salgueiro | Desarrollador web de Donostia/San Sebastián
+author:
+    name: Dani Salgueiro
+    email: "&#100;&#097;&#110;&#105;&#064;&#100;&#097;&#110;&#105;&#115;&#097;&#108;&#103;&#117;&#101;&#105;&#114;&#111;&#046;&#099;&#111;&#109;"
+
+permalink: /:year/:title
+
+BASE_PATH: false
+ASSET_PATH: false
+
+BASE_URL: http://danisalgueiro.com

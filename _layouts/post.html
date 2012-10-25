@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<div class="page-header">
+    <h1>{{ page.title }}{% if page.subtitle %} <small>{{ page.subtitle }}</small>{% endif %}</h1>
+</div>
+
+
+<div class="row post-meta">
+    <div class="span12">
+        <p class="pull-left">
+            Fecha: <span class="label label-inverse">{{ page.date | date: "%d/%m/%Y" }}</span>
+        </p>
+        
+        {% if empty != page.categories or empty != page.tags %}
+        <p class="pull-right">
+            {% if empty != page.categories %}
+            Categorías:
+            {% for category in page.categories %}
+            <a href="{{ BASE_PATH }}/categories/#{{ category | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ category }}"><span class="label label-info">{{ category }}</span></a>
+            {% endfor %}
+            {% endif %}
+            {% if empty != page.tags %}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Etiquetas:
+            {% for tag in page.tags %}
+            <a href="{{ BASE_PATH }}/tags/#{{ tag | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ tag }}"><span class="label label-info">{{ tag }}</span></a>
+            {% endfor %}
+            {% endif %}
+        </p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row content">
+    <div class="span12 post">
+        {{ content }}
+    </div>
+</div>
+
+<div class="row share">
+    <div class="span12">
+        <div class="buttons">
+            <div class="button">
+                <iframe src="https://platform.twitter.com/widgets/tweet_button.html?lang=es&amp;url={{ site.BASE_URL }}{{ page.url }}&amp;text={{ page.title }}&amp;via=danisalgueiro" allowtransparency="true" frameborder="0" scrolling="no" style="width:130px; height:20px;"></iframe>
+            </div>
+            <div class="button">
+                <iframe src="//www.facebook.com/plugins/like.php?href={{ site.BASE_URL }}{{ page.url }}&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=recommend&amp;colorscheme=light&amp;font&amp;height=21" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; height:21px;"></iframe>
+            </div>
+            <div class="button">
+                <g:plusone size="medium"></g:plusone>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row navigation">
+    <div class="span12">
+        <ul class="">
+        {% if page.previous %}
+            <li class="previous"><a href="{{ BASE_PATH }}{{ page.previous.url }}" rel="tooltip" data-placement="right" title="{{ page.previous.title }}">&larr; Anterior</a></li>
+        {% endif %}
+        {% if page.next %}
+            <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" rel="tooltip" data-placement="left" title="{{ page.next.title }}">Siguiente &rarr;</a></li>
+        {% endif %}
+        </ul>
+    </div>
+</div>
+
+<div class="page-header comments-header">
+    <h1>Comentarios</h1>
+</div>
+
+<div class="row comments">
+    <div class="span12">
+        <div id="disqus_thread" data-disqus-shortname="danisalgueiro" data-disqus-url="{{ site.BASE_URL }}{{ page.url }}"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  window.___gcfg = {lang: 'es'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>

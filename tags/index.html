@@ -1,0 +1,24 @@
+---
+layout: page
+title: Tags
+---
+
+<section id="tags">
+{% for tag in site.tags %}
+<section id="{{ tag[0] | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}">
+    <div class="page-header">
+        <h2>{{ tag[0] }} <small>{{ tag[1] | size }} posts</small></h2>
+    </div>
+    {% for post in tag[1] %}
+    <article class="row post">
+        <div class="span3 date">
+            {{ post.date | date: "%d/%m/%Y" }}
+        </div>
+        <div class="span9 title">
+            <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+{% endfor %}
+</section>

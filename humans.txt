@@ -1,0 +1,13 @@
+﻿/* TEAM */
+Developer: Dani Salgueiro
+Contact: dani [at] danisalgueiro.com
+Twitter: @danisalgueiro
+Location: Donostia/San Sebastián, Guipúzcoa, Spain
+
+/* THANKS */
+
+
+/* SITE */
+Language: Castellano
+Standards: HTML5, CSS3
+Components: Modernizr, jQuery, Twitter Bootstrap

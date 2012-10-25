@@ -1,0 +1,21 @@
+<div class="navbar navbar-fixed-top">
+
+    <header class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="{{ HOME_PATH }}">{{ site.author.name }}</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li{% if "/about/index.html" == page.url %} class="active"{% endif %}><a href="{{ BASE_PATH }}/about"{% if "/about/index.html" == page.url %} class="active"{% endif %}>Acerca de</a></li>
+                    <li{% if "/archive/index.html" == page.url %} class="active"{% endif %}><a href="{{ BASE_PATH }}/archive"{% if "/archive/index.html" == page.url %} class="active"{% endif %}>Archivo</a></li>
+                    <li><a href="mailto:{{ site.author.email }}" target="_blank">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+</div>
