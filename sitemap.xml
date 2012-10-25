@@ -1,0 +1,18 @@
+---
+layout: nil
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Posts -->{% for post in site.posts %}
+  <url><loc>{{ site.BASE_URL }}{{ post.url }}</loc></url>
+  {% endfor %}
+  
+  <!-- Tags -->{% for tag in site.tags %}
+  <url><loc>{{ site.BASE_URL }}/tags/#{{ tag | first | downcase }}</loc></url>
+  {% endfor %}
+  
+  <!-- Categories -->{% for category in site.categories %}
+  <url><loc>{{ site.BASE_URL }}/categories/#{{ category | first | downcase }}</loc></url>
+  {% endfor %}
+</urlset>
