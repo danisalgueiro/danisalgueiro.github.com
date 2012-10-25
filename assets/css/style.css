@@ -958,9 +958,9 @@ footer .navbar-inner{min-height:35px !important;}
 .text-center{text-align:center;}
 .post-list h3{margin-bottom:20px;}
 .post-list ul{list-style:none;margin:0;padding:0;}
-.post-list .post{font-size:1.4em;margin-bottom:15px;}.post-list .post .date{float:left;width:170px;}
+.post-list .post{font-size:1.4em;margin-bottom:15px;}.post-list .post .date{float:left;width:170px;color:#bbbbbb;}
 .post-list .post .title .label.first{margin-left:10px;}
-#archive .post{font-size:1.6em;margin-bottom:15px;}
+#archive .post{font-size:1.6em;margin-bottom:15px;}#archive .post .date{color:#bbbbbb;}
 #archive .categories-list{font-size:1.4em;}#archive .categories-list li{margin-bottom:10px;}
 .post p{margin:15px 0 5px;font-size:1.4em;line-height:1.4em;text-align:justify;}
 .post-meta{margin-bottom:20px;}
