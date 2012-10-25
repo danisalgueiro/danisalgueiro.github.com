@@ -4,15 +4,18 @@ layout: nil
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Posts -->{% for post in site.posts %}
-  <url><loc>{{ site.BASE_URL }}{{ post.url }}</loc></url>
-  {% endfor %}
+    <url><loc>{{ site.BASE_URL }}/about</loc></url>
+    <url><loc>{{ site.BASE_URL }}/archive</loc></url>
+      
+    <!-- Posts -->{% for post in site.posts %}
+    <url><loc>{{ site.BASE_URL }}{{ post.url }}</loc></url>
+    {% endfor %}
   
-  <!-- Tags -->{% for tag in site.tags %}
-  <url><loc>{{ site.BASE_URL }}/tags/#{{ tag | first | downcase }}</loc></url>
-  {% endfor %}
-  
-  <!-- Categories -->{% for category in site.categories %}
-  <url><loc>{{ site.BASE_URL }}/categories/#{{ category | first | downcase }}</loc></url>
-  {% endfor %}
+    <!-- Tags -->{% for tag in site.tags %}
+    <url><loc>{{ site.BASE_URL }}/tag/{{ tag | first | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}</loc></url>
+    {% endfor %}
+
+    <!-- Categories -->{% for category in site.categories %}
+    <url><loc>{{ site.BASE_URL }}/category/{{ category | first | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}</loc></url>
+    {% endfor %}
 </urlset>
