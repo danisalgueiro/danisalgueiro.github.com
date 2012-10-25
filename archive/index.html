@@ -47,7 +47,7 @@ title: Archivo
 
                     <ul class="categories-list">
                     {% for category in site.categories %}
-                        <li><a href="{{ BASE_PATH }}/categories/#{{ category[0] | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ category[0] }}">{{ category[0] }}</a></li>
+                        <li><a href="{{ BASE_PATH }}/categories/#{{ category | first | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ category | first }}">{{ category[0] }}</a></li>
                     {% endfor %}
                     </ul>
                 </div>

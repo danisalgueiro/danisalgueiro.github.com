@@ -3,7 +3,7 @@
         {% assign BASE_PATH = site.BASE_PATH %}
         {% assign HOME_PATH = site.BASE_PATH %}
     {% else %}
-        {% assign BASE_PATH = nil %}
+        {% assign BASE_PATH = site.BASE_URL %}
         {% assign HOME_PATH = "/" %}
     {% endif %}
 
