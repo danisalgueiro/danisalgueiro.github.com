@@ -34,7 +34,7 @@ title: Archivo
                         <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%d/%m/%Y" }}</time>
                     </div>
                     <div class="span7 title">
-                        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+                        <a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                     </div>
                 </article>
                 {% endfor %}
@@ -47,7 +47,7 @@ title: Archivo
 
                     <ul class="categories-list">
                     {% for category in site.categories %}
-                        <li><a href="{{ BASE_PATH }}/category/{{ category | first | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ category | first }}">{{ category | first }}</a></li>
+                        <li><a href="{{ BASE_PATH }}/categoria/{{ category | first | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ category | first }}">{{ category | first }}</a></li>
                     {% endfor %}
                     </ul>
                 </div>
@@ -60,7 +60,7 @@ title: Archivo
                     {% for tag in site.tags %}
                     {% capture current_count %}{{ tag | last | size | minus: min_count }}{% endcapture %}
                     {% capture current_size %}{{ current_count | times: size_interval | divide_by: count_interval | plus: tag_cloud_min_font_size }}{% endcapture %}
-                    <span style="font-size: {{ current_size }}{{ tag_cloud_font_unit }}"><a href="{{ BASE_PATH }}/tag/{{ tag | first | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ tag | first }}">{{ tag | first }}</a></span>
+                    <span style="font-size: {{ current_size }}{{ tag_cloud_font_unit }}"><a href="{{ BASE_PATH }}/etiqueta/{{ tag | first | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ tag | first }}">{{ tag | first }}</a></span>
                     {% endfor %}
                 </div>
             </aside>

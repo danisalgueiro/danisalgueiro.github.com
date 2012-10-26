@@ -18,13 +18,13 @@ layout: default
             {% if empty != page.categories %}
             Categorías:
             {% for category in page.categories %}
-            <a href="{{ BASE_PATH }}/category/{{ category | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ category }}"><span class="label label-info">{{ category }}</span></a>
+            <a href="{{ BASE_PATH }}/categoria/{{ category | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ category }}"><span class="label label-info">{{ category }}</span></a>
             {% endfor %}
             {% endif %}
             {% if empty != page.tags %}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Etiquetas:
             {% for tag in page.tags %}
-            <a href="{{ BASE_PATH }}/tag/{{ tag | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ tag }}"><span class="label label-info">{{ tag }}</span></a>
+            <a href="{{ BASE_PATH }}/etiqueta/{{ tag | downcase | replace:' ','-' | replace:'á','a' | replace:'é','e' | replace:'í','i' | replace:'ó','o' | replace:'ú','u' | replace:'ñ','n' }}" title="{{ tag }}"><span class="label label-info">{{ tag }}</span></a>
             {% endfor %}
             {% endif %}
         </p>

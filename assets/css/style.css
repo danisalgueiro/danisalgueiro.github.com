@@ -951,7 +951,7 @@ hr{border-bottom:1px solid #eeeeee;}
 .highlight .il{color:#666666;}
 .hero-unit{margin-top:30px;}.hero-unit h1{color:#468847;}
 h2{color:#222222 !important;}
-header .nav a:hover{color:#3a87ad !important;-webkit-transition:all 350ms ease-in-out;-moz-transition:all 350ms ease-in-out;-o-transition:all 350ms ease-in-out;transition:all 350ms ease-in-out;}
+header .nav a:hover{color:#336699 !important;-webkit-transition:all 350ms ease-in-out;-moz-transition:all 350ms ease-in-out;-o-transition:all 350ms ease-in-out;transition:all 350ms ease-in-out;}
 footer{height:45px;border-top:2px solid #eeeeee;background-color:#ffffff;padding-top:10px;font-size:1.2em;}footer a:hover{background-color:#888888;color:#ffffff;border-bottom:none;-webkit-transition:all 350ms ease-in-out;-moz-transition:all 350ms ease-in-out;-o-transition:all 350ms ease-in-out;transition:all 350ms ease-in-out;}
 footer .navbar-inner{min-height:35px !important;}
 .navbar .navbar-inner{border-top:0;}
@@ -966,7 +966,7 @@ footer .navbar-inner{min-height:35px !important;}
 .post-meta{margin-bottom:20px;}
 .page p{margin:15px 0 5px;font-size:1.4em;line-height:1.4em;text-align:justify;}
 .page-header h1{color:#468847;}
-.content a{color:#3a87ad;text-decoration:none;border-bottom:1px dotted;}.content a:hover{background-color:#3a87ad;color:#ffffff;border-bottom:none;-webkit-transition:all 350ms ease-in-out;-moz-transition:all 350ms ease-in-out;-o-transition:all 350ms ease-in-out;transition:all 350ms ease-in-out;}
+.content a{color:#336699;text-decoration:none;border-bottom:1px dotted;}.content a:hover{background-color:#336699;color:#ffffff;border-bottom:none;-webkit-transition:all 350ms ease-in-out;-moz-transition:all 350ms ease-in-out;-o-transition:all 350ms ease-in-out;transition:all 350ms ease-in-out;}
 .share{margin-top:10px;margin-bottom:30px;}.share .buttons{border-top:2px solid #eeeeee;padding-top:20px;}
 .share .button{float:left;width:120px;margin-right:30px;height:20px;}
 .navigation{margin-bottom:30px;}.navigation ul{list-style:none;}.navigation ul li{height:100px;width:100px;z-index:1000;position:fixed;top:45%;background-position:0 0;background-repeat:no-repeat;}.navigation ul li.previous{left:-20px;background-image:url(../img/arrow_left.png);}

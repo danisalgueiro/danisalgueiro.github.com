@@ -10,9 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link type="text/plain" rel="author" href="{{ site.BASE_URL }}/humans.txt" />
-    <link type="application/atom+xml" rel="alternate" href="{{ site.BASE_URL }}/atom.xml" />
-
     {% if page.title %}
     <title>{{ page.title }}</title>
     {% else %}
@@ -20,12 +17,15 @@
     {% endif %}
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     
-    <link rel="stylesheet" href="{{ ASSET_PATH }}css/style.css">
+    <link type="image/x-icon" rel="icon" href="{{ site.BASE_URL }}/favicon.ico" />
+    <link type="image/x-icon" rel="shortcut icon" href="{{ site.BASE_URL }}/favicon.ico" />
+    <link type="text/plain" rel="author" href="{{ site.BASE_URL }}/humans.txt" />
+    <link type="application/atom+xml" rel="alternate" href="{{ site.BASE_URL }}/atom.xml" />
 
-    <script src="{{ ASSET_PATH }}js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="{{ ASSET_PATH }}css/style.css">
 
+    <script type="text/javascript" src="{{ ASSET_PATH }}js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
     <script type="text/javascript">
-
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-4274312-6']);
         _gaq.push(['_setDomainName', 'danisalgueiro.com']);
@@ -36,7 +36,6 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-
     </script>
 </head>
 <body>
@@ -54,13 +53,13 @@
     
     {% include partials/footer.html %}
     
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ ASSET_PATH }}js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script src="{{ ASSET_PATH }}js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
-<script src="{{ ASSET_PATH }}js/libs/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ ASSET_PATH }}js/libs/bootstrap/bootstrap.min.js"></script>
 
-<script src="{{ ASSET_PATH }}js/plugins.js"></script>
-<script src="{{ ASSET_PATH }}js/script.js"></script>
+<script type="text/javascript" src="{{ ASSET_PATH }}js/plugins.js"></script>
+<script type="text/javascript" src="{{ ASSET_PATH }}js/script.js"></script>
 
 </body>
 </html>

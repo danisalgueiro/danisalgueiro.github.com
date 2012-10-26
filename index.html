@@ -7,7 +7,8 @@ layout: default
         <div class="hero-unit">
             <h1><strong>Desarrollador web de Donostia/San Sebastián</strong></h1>
             <h2>Experiencia en desarrollo web, y admiración por <strong>PHP</strong> y <strong>Symfony</strong></h2>
-            <p>Formando parte de <a href="http://www.diversius.com/" onclick="trackOutboundLink(this, 'Outbound Links', 'Diversius', 'Home', 1);return false;" title="Diversius" target="_blank">Diversius</a>, creando proyectos como <a href="http://www.aunminuto.com/" onclick="trackOutboundLink(this, 'Outbound Links', 'A Un Minuto', 'Home', 1);return false;" title="A Un Minuto" target="_blank">A Un Minuto</a>. Si tienes alguna idea, sugerencia o problema, y me <a href="mailto:{{ site.author.email }}" onclick="trackOutboundLink(this, 'Outbound Links', 'Mail', 'Home', 1);return false;" target="_blank">encuentras</a>, quizás lo podamos hablar.</p>
+            <p>Formando parte de <a href="http://www.diversius.com/" onclick="trackOutboundLink(this, 'Outbound Links', 'Diversius', 'Home', 1);return false;" title="Diversius" target="_blank">Diversius</a>, creando proyectos como <a href="http://www.aunminuto.com/" onclick="trackOutboundLink(this, 'Outbound Links', 'A Un Minuto', 'Home', 1);return false;" title="A Un Minuto" target="_blank">A Un Minuto</a>.</p>
+            <p>Si tienes alguna idea, sugerencia o problema, y me <a href="mailto:{{ site.author.email }}" onclick="trackOutboundLink(this, 'Outbound Links', 'Mail', 'Home', 1);return false;" target="_blank">encuentras</a>, quizás lo podamos hablar.</p>
         </div>
 
         <section class="post-list">
@@ -23,7 +24,7 @@ layout: default
                             <article>
                                 <div class="date"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%d/%m/%Y" }}</time></div>
                                 <div class="title">
-                                    <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+                                    <a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                                 </div>
                             </article>
                         </li>

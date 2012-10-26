@@ -22,7 +22,7 @@ module Jekyll
     
     def generate(site)
       if site.layouts.key? 'category'
-        dir = 'category'
+        dir = 'categoria'
         site.categories.keys.each do |category|
           folder = category.downcase
           folder = folder.gsub(/\s+/, ' ')
