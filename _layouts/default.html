@@ -18,7 +18,7 @@
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     
     <link type="image/x-icon" rel="icon" href="{{ site.BASE_URL }}/favicon.ico" />
-    <link type="image/x-icon" rel="shortcut icon" href="{{ site.BASE_URL }}/favicon.ico" />
+    <link type="image/x-icon" rel="shortcut icon" href="{{ site.BASE_URL }}o/favicon.ico" />
     <link type="text/plain" rel="author" href="{{ site.BASE_URL }}/humans.txt" />
     <link type="application/atom+xml" rel="alternate" href="{{ site.BASE_URL }}/atom.xml" />
 
@@ -29,6 +29,7 @@
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-4274312-6']);
         _gaq.push(['_setDomainName', 'danisalgueiro.com']);
+        _gaq.push(['_setSiteSpeedSampleRate', 5]);
         _gaq.push(['_trackPageview']);
 
         (function() {

@@ -24,7 +24,11 @@ module Jekyll
       if site.layouts.key? 'tag'
         dir = 'etiqueta'
         site.tags.keys.each do |tag|
-          write_tag_index(site, File.join(dir, tag), tag)
+          folder = tag.downcase
+          folder = folder.gsub(/\s+/, ' ')
+          folder = folder.gsub(/\s+/, '-')
+          folder = folder.gsub(/[áéíóúñ]/, 'á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u', 'ñ' => 'n')
+          write_tag_index(site, File.join(dir, folder), tag)
         end
       end
     end
