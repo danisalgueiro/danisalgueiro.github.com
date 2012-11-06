@@ -1,3 +1,7 @@
+---
+layout: nil
+---
+
 Sitemap: {{ site.BASE_URL }}/sitemap.xml
 
 User-agent: *
