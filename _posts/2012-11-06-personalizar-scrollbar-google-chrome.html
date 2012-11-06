@@ -1,0 +1,60 @@
+---
+layout: post
+title: Personalizar scrollbar de Google Chrome
+date: 2012-11-06
+published: true
+categories: [ Trucos ]
+tags: [ Google Chrome, CSS ]
+---
+
+<p>Debido a que había veces que no veía bien la barra de scroll en Google Chrome, sentí la necesidad de que tenía que hacer algo para no tener más ese problema. Y lo que he hecho ha sido <strong>personalizar un poco la scrollbar de Google Chrome</strong>.</p>
+
+<p>Lo primero que hay que hacer es localizar este archivo y abrirlo con un editor de textos:</p>
+
+<p>
+<pre>
+<code><strong># Windows</strong>
+%LOCALAPPDATA%\Google\Chrome\User Data\Default\User StyleSheets\Custom.css</code>
+</pre>
+</p>
+
+<p>
+<pre>
+<code><strong># Mac</strong>
+/Users/YourUsername/Library/Application Support/Google/Chrome/Default/User StyleSheets/Custom.css</code>
+</pre>
+</p>
+
+<p>
+<pre>
+<code><strong># Linux</strong>
+~/.config/google-chrome/Default/User StyleSheets/Custom.css</code>
+</pre>
+</p>
+
+<p>Una vez abierto, debemos ajustar los parámetros a nuestras necesidades. Os dejo un <a href="http://css-tricks.com/custom-scrollbars-in-webkit/" title="Custom Scrollbars in WebKit" target="_blank">enlace</a> donde se explica bastante bien todos los atributos que tenemos disponibles.</p>
+
+<p>Estos son los valores que he puesto yo, que están basados en el <strong>estilo de Gmail</strong>:</p>
+
+<p>
+{% highlight css %}
+::-webkit-scrollbar-track-piece {
+    -webkit-border-radius: 0;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+    height: 50px;
+    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+{% endhighlight %}
+</p>
+
+<p>Si creáis vuestros propios diseños, no dudéis en compartirlos mediante los comentarios.</p>
