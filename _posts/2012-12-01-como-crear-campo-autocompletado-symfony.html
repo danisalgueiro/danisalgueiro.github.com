@@ -1,0 +1,83 @@
+---
+layout: post
+title: Cómo crear un campo con auto-completado en Symfony
+date: 2012-12-01
+published: true
+categories: [ Symfony ]
+tags: [ symfony ]
+---
+
+<p>Para comenzar la categoría del maravilloso <strong>framework PHP Symfony</strong>, que mejor que hacerlo que con su generador de backend/administrador. Cuando generamos una relación de uno a muchos <em>(one-to-many)</em>, Symfony, por defecto, nos crea un formulario con un campo <em>select</em> para que escojamos la clave foránea. Este comportamiento es más que correcto. Pero, ¿qué ocurre cuando ese combo desplegable contiene más de 10.000 registros?</p>
+
+<p>Para solucionar este problema, voy a explicar una funcionalidad que he utilizado estos últimos días (ya la había usado en otros proyectos anteriormente) y que consiste en <strong>convertir un despegable en un campo con auto-completado</strong>.</p>
+
+<p>Antes de nada, y como requisito, debemos tener instalado el plugin <a href="http://www.symfony-project.org/plugins/sfFormExtraPlugin" title="Plugins | sfFormExtraPlugin | 1.1.3 | symfony | Web PHP Framework" target="_blank">sfFormExtraPlugin</a>. En caso de que no lo tengamos instalado, tan solo debemos ir a la página web del plugin, y seguir las instrucciones de instalación. Una vez instalado, podremos continuar implementando nuestra nueva funcionalidad.</p>
+
+<p>Para ello, debemos añadir lo siguiente en el formulario donde queramos el auto-completado. Yo voy a seguir el ejemplo de una relación entre un libro y su autor. Aclarar que en este caso, un libro solo tendrá un autor, y un autor podrá haber escrito más de un libro.</p>
+
+<p>
+{% highlight php %}
+<?php
+// lib/form/doctrine/BookForm.class.php
+$this->getWidget('author_id')->setOption('renderer_class', 'sfWidgetFormDoctrineJQueryAutocompleter');
+$this->getWidget('author_id')->setOption('renderer_options', array(
+    'model' => 'Author',
+    'url' => sfContext::getInstance()->getRouting()->generate('ajax_authors')
+));
+{% endhighlight %}
+</p>
+
+<p>Con este sencillo código, y gracias al widget <strong>sfWidgetFormDoctrineJQueryAutocompleter</strong>, habremos convertido nuestro desplegable en un campo de texto. Ahora nos queda ver cómo devolveremos los autores. Si nos fijamos, vemos una ruta <em>"ajax_authors"</em> que tendremos que definir en nuestro routing.yml. Esta ruta será una petición GET a la acción del módulo que nosotros indiquemos. Por ejemplo:</p>
+
+<p>
+{% highlight yaml %}
+ajax_authors:
+    url:   /authors/ajax
+    param: { module: author, action: ajax }
+{% endhighlight %}
+</p>
+
+<p>Una vez definida la ruta, vamos a implementar el código necesario para que todo funcione.</p>
+
+<p>
+{% highlight php %}
+<?php
+// apps/application/modules/author/actions/actions.class.php
+public function executeAjax($request)
+{
+    $this->getResponse()->setContentType('application/json');
+
+    $query = AuthorTable::getInstance()->ajaxAuthorsQuery(
+        $request->getParameter('q'),
+        $request->getParameter('limit')
+    );
+
+    $authors = array();
+    foreach ($query as $author) {
+        $authors[$author->getId()] = (string) $author;
+    }
+    
+    return $this->renderText(json_encode($authors));
+}
+{% endhighlight %}
+</p>
+
+<p>En este caso, vemos que el método que realiza la consulta está en la clase <em>AuthorTable</em>. Podríamos haber hecho la lógica aquí mismo, pero por limpieza y organización, la hemos sacado fuera. Este es el código del método <em>ajaxAuthorsQuery</em>, al cual se le pasan los parámetros de qué/quién estamos buscando, y cuantos resultados nos mostrará <em>(por defecto, 10)</em>.</p>
+
+<p>
+{% highlight php %}
+<?php
+// lib/model/doctrine/AuthorTable.class.php
+public function ajaxAuthorsQuery($q, $limit)
+{
+    $q = self::getInstance()->createQuery('a')
+        ->addWhere('a.name LIKE ?', '%'. $q .'%')
+        ->orderby('a.name ASC')
+        ->limit($limit);
+
+    return $q->execute();
+}
+{% endhighlight %}
+</p>
+
+<p>Y con esto tendríamos implementado nuestro campo con auto-completado. Me parece la mejor forma de asignar un valor que ya existe en nuestra base de datos cuando el conjunto de posibles resultados es muy grande.</p>
