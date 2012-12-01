@@ -1,0 +1,8 @@
+{
+    "name": "danisalgueiro.com",
+    "version": "0.0.1",
+    "dependencies" : {
+        "grunt-contrib-less": ">0.0.0",
+        "grunt-css": ">0.0.0"
+    }
+}

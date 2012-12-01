@@ -58,10 +58,10 @@ layout: default
     <div class="span12">
         <ul class="">
         {% if page.previous %}
-            <li class="previous"><a href="{{ BASE_PATH }}{{ page.previous.url }}" rel="tooltip" data-placement="right" title="{{ page.previous.title }}">&larr; Anterior</a></li>
+            <li class="previous" rel="tooltip" data-placement="right" data-title="{{ page.previous.title }}"><a href="{{ BASE_PATH }}{{ page.previous.url }}">&larr; Anterior</a></li>
         {% endif %}
         {% if page.next %}
-            <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" rel="tooltip" data-placement="left" title="{{ page.next.title }}">Siguiente &rarr;</a></li>
+            <li class="next" rel="tooltip" data-placement="left" data-title="{{ page.next.title }}"><a href="{{ BASE_PATH }}{{ page.next.url }}">Siguiente &rarr;</a></li>
         {% endif %}
         </ul>
     </div>
