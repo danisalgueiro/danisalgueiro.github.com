@@ -1,0 +1,68 @@
+---
+layout: post
+title: Editar los metadatos de un vídeo en Ubuntu
+date: 2012-12-05
+published: true
+categories: [ Ubuntu ]
+tags: [ ffmpeg, vídeo ]
+---
+
+<p>Pensaba que <strong>cambiar los metadatos de un vídeo</strong> era igual de sencillo que hacerlo con un archivo de música. Pero parece que no. Para cambiar estos valores en un vídeo hay que "recodificarlo" pasándole los nuevos parámetros que queramos.</p>
+
+<p>La forma de hacerlo que he utilizado <strong>en Ubuntu ha sido mediante <a href="http://ffmpeg.org/" title="FFmpeg" class="roll" target="_blank"><span data-content="ffmpeg">ffmpeg</span></a></strong>. Si no lo tenemos instalado, en una consola ejecutamos lo siguiente:</p>
+
+<p>
+<pre>
+<code><strong>sudo apt-get install ffmpeg</strong></code>
+</pre>
+</p>
+
+<p>Una vez que tengamos instalado el paquete <em>ffmpeg</em>, nos dirigimos, mediante la consola, a la carpeta donde tengamos el vídeo al cual queremos cambiar los metadatos. Una vez ahí, tan solo tendremos que ejecutar el siguiente comando:</p>
+
+<p>
+<pre>
+<code><strong>ffmpeg -acodec copy -vcodec copy -metadata title="Nuevo título" -i video.avi nuevo_video.avi</strong></code>
+</pre>
+</p>
+
+<p>Con esta simple instrucción, habremos conseguido un nuevo vídeo con las mismas características de audio y vídeo que el original, pero con los metadatos correctos. Si queremos, podemos eliminar el vídeo original.</p>
+
+<p>En este caso, solo hemos cambiado el título del vídeo. Pero tenemos a nuestra disposición muchos más parámetros para personalizar. Tan solo tendríamos que cambiar el parámetro <em><strong>title</strong></em> por uno de los siguientes:</p>
+
+<div class="row">
+    <div class="span3">
+        <p>
+        <ul>
+            <li>album</li>
+            <li>date</li>
+            <li>language</li>
+        </ul>
+        </p>
+    </div>
+    <div class="span3">
+        <p>
+        <ul>
+            <li>artist</li>
+            <li>encoded_by</li>
+            <li>title</li>
+        </ul>
+        </p>
+    </div>
+    <div class="span3">
+        <p>
+        <ul>
+            <li>comment</li>
+            <li>encoder</li>
+            <li>track</li>
+        </ul>
+        </p>
+    </div>
+    <div class="span3">
+        <p>
+        <ul>
+            <li>copyright</li>
+            <li>genre</li>
+        </ul>
+        </p>
+    </div>
+</div>
