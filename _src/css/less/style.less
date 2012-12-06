@@ -224,7 +224,7 @@ footer {
     }
 }
 
-a.roll {
+.csstransforms3d a.roll {
     display: inline-block;
     line-height: 1.2em;
     overflow: hidden;
@@ -242,12 +242,12 @@ a.roll {
             perspective-origin: 50% 50%;
 }
 
-a.roll:hover {
+.csstransforms3d a.roll:hover {
     background: none repeat scroll 0 center transparent;
     text-shadow: none;
 }
 
-a.roll span {
+.csstransforms3d a.roll span {
     display: block;
     position: relative;
     padding: 1px 3px;
@@ -274,7 +274,7 @@ a.roll span {
             backface-visibility: hidden;
 }
 
-a.roll:hover span {
+.csstransforms3d a.roll:hover span {
     background: rgba(0,0,0,0.5);
 
     -webkit-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
@@ -283,7 +283,7 @@ a.roll:hover span {
             transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
 }
 
-a.roll span:after {
+.csstransforms3d a.roll span:after {
     content: attr(data-content);
 
     color: @white;
