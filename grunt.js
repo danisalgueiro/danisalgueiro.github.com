@@ -52,6 +52,10 @@ module.exports = function(grunt) {
                 dest: DIST_JS + '/scripts.js'
             }
         },
+        watch: {
+            files: [SRC_CSS + '/less/style.less', '<config:concat.js.src>'],
+            tasks: ['default']
+        },
         jshint: {
             options: {
                 curly: true,

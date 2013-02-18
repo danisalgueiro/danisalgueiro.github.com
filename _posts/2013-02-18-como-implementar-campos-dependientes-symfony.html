@@ -1,0 +1,69 @@
+---
+layout: post
+title: Cómo implementar campos dependientes en Symfony
+date: 2013-02-18
+published: true
+categories: [ Symfony ]
+tags: [ symfony ]
+---
+
+<p>Continuando con mis progresos en <a href="{{ BASE_PATH }}/categoria/symfony" title="Artículos de la categoría Symfony" class="roll"><span data-content="Symfony">Symfony</span></a>, hoy explicaré, utilizando el framework Symfony, una funcionalidad bastante habitual como es <strong>implementar campos dependientes</strong> para escoger entre un grupo de opciones.</p>
+
+<p>Como suele ser habitual en Symfony, también tenemos varios plugins que nos ayudarán a conseguir lo que queremos. En este caso, he escogido el plugin <a href="http://www.symfony-project.org/plugins/sfDoctrineChoiceChainPlugin" title="Plugins | sfDoctrineChoiceChainPlugin | 1.1.1 | symfony | Web PHP Framework" class="roll" target="_blank"><span data-content="sfDoctrineChoiceChainPlugin">sfDoctrineChoiceChainPlugin</span></a> porque me ha parecido el más completo y sencillo de usar. Así que como primer paso, instalamos el plugin siguiendo los pasos que nos aconsejan.</p>
+
+<p>Una vez instalado, tenemos que habilitar el módulo, que ya viene implementado en el plugin, para que pueda funcionar. En el fichero de settings.yml de nuestra aplicación, debemos añadir la siguiente linea, si no existe ya.</p>
+
+<p>
+{% highlight yaml %}
+## apps/application/config/settings.yml
+all:
+  .settings:
+    ...
+    enabled_modules: [default, sfChoiceChain]
+    ...
+{% endhighlight %}
+</p>
+
+<p>Para explicar el funcionamiento del plugin me basaré en una necesidad muy común. Elegir nuestra ciudad en base a la provincia del país seleccionado. Para ello tendríamos tres modelos, <em>Country</em>, <em>Region</em> y <em>City</em>, que tendrían una relación de un "Country" muchas "Region", y una "Region" muchas "City". Para que quede un poco más claro y de una forma más visual, este sería nuestro schema.yml</p>
+
+<p>
+{% highlight yaml %}
+## config/doctrine/schema.yml
+Country:
+  columns:
+    name: { type: string(255), notnull: true }
+
+Region:
+  columns:
+    country_id: { type: bigint(20), notnull: true }
+    name: { type: string(255), notnull: true }
+  relations:
+    Country: { alias: Country, foreignAlias: Regions, class: Country, local: country_id, foreign: id, type: one, foreignType: many }
+    
+City:
+  columns:
+    region_id: { type: bigint(20), notnull: true }
+    name: { type: string(255), notnull: true }
+  relations:
+    Region: { alias: Region, foreignAlias: Cities, class: Region, local: region_id, foreign: id, type: one, foreignType: many }
+{% endhighlight %}
+</p>
+
+<p>Con nuestros modelos ya generados, lo que queremos conseguir es que cuando seleccionemos un país concreto, nos cargue las provincias que tiene asociadas. Y que cuando seleccionemos la provincia, nos cargue sus ciudades. Para ello, tan solo tendremos que poner lo siguiente en el formulario donde lo necesitemos.</p>
+
+<p>
+{% highlight php %}
+<?php
+$this->setWidget('location', new sfWidgetFormDoctrineChoiceChain(array(
+    'chain' => array('Country', 'Region', 'City')
+)));
+
+$this->setValidator('location', new sfValidatorChoiceChain(array(
+    'chain' => array('Country', 'Region', 'City')
+)));
+{% endhighlight %}
+</p>
+
+<p>Con este sencillo código, y gracias al widget <strong>sfDoctrineChoiceChainPlugin</strong>, tendremos 3 desplegables con todos los países cargados en uno de ellos. ¿Y qué pasa con las provincias y las ciudades? Pues se cargarán en base a los valores que vayamos seleccionando.</p>
+
+<p>Esto todo lo necesarios para un funcionamiento básico. Si queremos algo ya más concreto o diferente, tenemos algunas opciones para personalizarlo un poco. Si tenéis alguna duda o pregunta, no dudéis en usar los comentarios para preguntar.</p>
